@@ -71,6 +71,7 @@ declare module 'react-native-rsa-native' {
 		export const SHA256withECDSA: string;
 		export const SHA512withECDSA: string;
 		export const SHA1withECDSA: string;
+		export function exportPrivateKey(keyTag: string): Promise<string | undefined>;
 	}
 
 	export { RSA, RSAKeychain, KeyPair, CSRKey };
