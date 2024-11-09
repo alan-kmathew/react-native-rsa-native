@@ -1,4 +1,3 @@
-
 package com.RNRSA;
 
 import android.os.AsyncTask;
@@ -349,6 +348,26 @@ public class RNRSAKeychainModule extends ReactContextBaseJavaModule {
             promise.resolve(publicKey);
           } else {
             promise.reject("Error", "Missing public key for that keyTag");
+          }
+        } catch (Exception e) {
+          promise.reject("Error", e.getMessage());
+        }
+      }
+    });
+  }
+
+  @ReactMethod
+  public void exportPrivateKey(final String keyTag, final Promise promise) {
+    AsyncTask.execute(new Runnable() {
+      @Override
+      public void run() {
+        try {
+          RSA rsa = new RSA(keyTag);
+          String privateKey = rsa.getPrivateKey();
+          if (privateKey != null) {
+            promise.resolve(privateKey);
+          } else {
+            promise.reject("Error", "Missing private key for that keyTag");
           }
         } catch (Exception e) {
           promise.reject("Error", e.getMessage());

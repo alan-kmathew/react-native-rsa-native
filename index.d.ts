@@ -64,6 +64,7 @@ declare module 'react-native-rsa-native' {
 		export function getPublicKeyDER(keyTag: string): Promise<string | undefined>;
 		export function getPublicKeyRSA(keyTag: string): Promise<string | undefined>;
 		export function deletePrivateKey(keyTag: string): Promise<boolean>;
+		export function exportPrivateKey(keyTag: string): Promise<string | undefined>;
 		export const SHA256withRSA: string;
 		export const SHA512withRSA: string;
 		export const SHA1withRSA: string;
