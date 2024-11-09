@@ -1,8 +1,3 @@
-//
-//  RNECRSASwift.m
-//  RNECRSA
-//
-
 #import <React/RCTBridgeModule.h>
 
 @interface RCT_EXTERN_MODULE(RNRSAKeychain, NSObject)
@@ -25,7 +20,7 @@ RCT_EXTERN_METHOD(sign64:(NSString *)message keyTag:(NSString *)keyTag resolver:
 
 RCT_EXTERN_METHOD(sign64WithAlgorithm:(NSString *)message keyTag:(NSString *)keyTag withAlgorithm:(NSString *)withAlgorithm resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 
-RCT_EXTERN_METHOD(getPublicKeyDER:(NSString *)keyTag resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+RCT_EXTERN_METHOD(getPublicKeyDER:(NSString *)keyTag resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 
 RCT_EXTERN_METHOD(getPublicKeyRSA:(NSString *)keyTag resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 
@@ -41,7 +36,6 @@ RCT_EXTERN_METHOD(verify64WithAlgorithm:(NSString *)signature withMessage:(NSStr
 
 RCT_EXTERN_METHOD(deletePrivateKey:(NSString *)keyTag resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 
-
 RCT_EXTERN_METHOD(encrypt:(NSString *)message keyTag:(NSString *)keyTag resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 
 RCT_EXTERN_METHOD(decrypt:(NSString *)message keyTag:(NSString *)keyTag resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
@@ -50,11 +44,6 @@ RCT_EXTERN_METHOD(encrypt64:(NSString *)message keyTag:(NSString *)keyTag resolv
 
 RCT_EXTERN_METHOD(decrypt64:(NSString *)message keyTag:(NSString *)keyTag resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 
+RCT_EXTERN_METHOD(exportPrivateKey:(NSString *)keyTag resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+
 @end
-
-
-
-
-
-
-

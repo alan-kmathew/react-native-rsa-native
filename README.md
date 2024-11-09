@@ -207,6 +207,11 @@ Verify whether or not a provided signature was produced by signing the given mes
 Delete the private key from the operating system's keychain.
 Returns true if the key was removed successfully.
 
+#### exportPrivateKey
+`static exportPrivateKey(keyTag : string) : Promise<string>`
+
+Export the private key associated with the given key tag from the operating system's keychain.
+
 ### KeyPair Type
 
 Note: The `KeyPair` type does not strictly exist.

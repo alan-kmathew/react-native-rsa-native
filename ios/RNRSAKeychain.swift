@@ -1,11 +1,3 @@
-//
-//  RNRSASwift.swift
-//  test
-//
-
-//#if canImport(React)
-//import React
-//#endif
 import Foundation
 
 @objc(RNRSAKeychain)
@@ -28,8 +20,6 @@ class RNRSAKeychain: NSObject {
             "SHA1withECDSA"   : "SHA1withECDSA"
         ]
     }
-    
-    
     
     // generate key with default keysize - RSA - DER format
     @objc
@@ -238,6 +228,16 @@ class RNRSAKeychain: NSObject {
         resolve(true)
     }
     
+    @objc
+    func exportPrivateKey(_ keyTag: String, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) -> Void {
+        let rsa_ec = RSAECNative(keyTag: keyTag)
+        let privateKey = rsa_ec.encodedPrivateKeyRSA()
+        if(privateKey == nil){
+            reject("not exist private key", "error", nil)
+        }else {
+            resolve(privateKey)
+        }
+    }
     
     @objc
     func decrypt(_ message: String ,keyTag: String, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) -> Void {
@@ -268,4 +268,3 @@ class RNRSAKeychain: NSObject {
     }
     
 }
-
